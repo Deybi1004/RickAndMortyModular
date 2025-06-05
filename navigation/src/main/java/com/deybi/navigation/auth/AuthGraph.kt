@@ -1,4 +1,4 @@
-package com.deybi.apprickandmortytest.navigation.auth
+package com.deybi.navigation.auth
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController

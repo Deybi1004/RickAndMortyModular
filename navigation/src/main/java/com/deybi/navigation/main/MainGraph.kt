@@ -1,4 +1,4 @@
-package com.deybi.apprickandmortytest.navigation.main
+package com.deybi.navigation.main
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
