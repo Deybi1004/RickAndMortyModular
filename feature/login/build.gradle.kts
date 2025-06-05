@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.deybi.login"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 24

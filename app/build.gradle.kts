@@ -1,13 +1,14 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
+    alias(libs.plugins.compose.compiler)
+    id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
 }
 
 android {
     namespace = "com.deybi.apprickandmortytest"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.deybi.apprickandmortytest"
@@ -42,7 +43,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.6.10"
+        kotlinCompilerExtensionVersion = "1.7.0"
     }
     packaging {
         resources {
@@ -69,8 +70,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    implementation("com.google.dagger:hilt-android:2.56.2")
+    ksp("com.google.dagger:hilt-android-compiler:2.56.2")
     implementation(libs.hilt.navigation.compose)
 
     implementation(libs.navigation.compose)

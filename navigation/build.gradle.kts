@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.deybi.navigation"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 24
@@ -36,8 +36,14 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.activity.compose)
     implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.navigation.compose)
+
+    implementation(project(":feature:login"))
+    implementation(project(":feature:home"))
 }
