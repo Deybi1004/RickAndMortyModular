@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "374406713237",
+    "project_id": "rickandmortytest-344af",
+    "storage_bucket": "rickandmortytest-344af.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374406713237:android:841e71df47532a9a96309c",
+        "android_client_info": {
+          "package_name": "com.deybi.apprickandmortytest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSMmItKPzLK9VkmL2Jo3q_2BxUUW-He3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

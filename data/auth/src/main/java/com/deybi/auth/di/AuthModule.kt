@@ -1,8 +1,9 @@
-package com.deybi.firebase.di
+package com.deybi.auth.di
 
+import com.deybi.auth.repository.AuthRepository
+import com.deybi.auth.repository.AuthRepositoryImpl
+import com.deybi.auth.usecase.LoginUseCase
 import com.deybi.firebase.auth.FirebaseAuthService
-import com.deybi.firebase.auth.FirebaseAuthServiceImpl
-import com.google.firebase.auth.FirebaseAuth
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -12,11 +13,11 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class FirebaseModule {
+abstract class AuthModule{
 
     @Binds
     @Singleton
-    abstract fun bindFirebaseAuthService(
-        impl: FirebaseAuthServiceImpl
-    ): FirebaseAuthService
+    abstract fun bindAuthRepository(
+        impl: AuthRepositoryImpl
+    ): AuthRepository
 }
