@@ -7,12 +7,12 @@ import javax.inject.Inject
 class FirebaseAuthServiceImpl @Inject constructor(
     private val firebaseAuth: FirebaseAuth
 ) : FirebaseAuthService {
-    override suspend fun login(email: String, password: String): Boolean {
+    override suspend fun login(email: String, password: String): Result<Boolean> {
         return try {
             firebaseAuth.signInWithEmailAndPassword(email, password).await()
-            true
+            Result.success(true)
         } catch (e: Exception) {
-            false
+            Result.failure(e)
         }
     }
 

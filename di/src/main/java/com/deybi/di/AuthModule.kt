@@ -1,12 +1,9 @@
-package com.deybi.auth.di
+package com.deybi.di
 
 import com.deybi.auth.repository.AuthRepository
 import com.deybi.auth.repository.AuthRepositoryImpl
-import com.deybi.auth.usecase.LoginUseCase
-import com.deybi.firebase.auth.FirebaseAuthService
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton

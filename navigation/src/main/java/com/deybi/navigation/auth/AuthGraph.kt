@@ -13,6 +13,4 @@ fun NavGraphBuilder.authGraph(navController: NavHostController) {
     ) {
         loginGraph(navController)
     }
-
-
 }

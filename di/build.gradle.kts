@@ -2,11 +2,12 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
 
-    alias(libs.plugins.compose.compiler)
+    id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
 }
 
 android {
-    namespace = "com.deybi.navigation"
+    namespace = "com.deybi.di"
     compileSdk = 35
 
     defaultConfig {
@@ -32,24 +33,24 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-
-    buildFeatures {
-        compose = true
-    }
 }
 
 dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.activity.compose)
     implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation(libs.navigation.compose)
+    implementation(libs.firebase.auth)
 
-    implementation(project(":feature:login"))
-    implementation(project(":feature:home"))
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+
+    implementation(project(":data:auth"))
+    implementation(project(":domain:auth"))
+    implementation(project(":core:firebase"))
+
 }

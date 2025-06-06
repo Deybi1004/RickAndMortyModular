@@ -31,3 +31,5 @@ include(":navigation")
 
 include(":data:auth")
 include(":domain:auth")
+
+include(":di")

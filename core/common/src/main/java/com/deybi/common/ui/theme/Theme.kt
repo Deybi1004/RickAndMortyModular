@@ -1,4 +1,4 @@
-package com.deybi.apprickandmortytest.ui.theme
+package com.deybi.common.ui.theme
 
 import android.app.Activity
 import android.os.Build

@@ -7,7 +7,7 @@ junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.9.0"
 activityCompose = "1.10.1"
-composeBom = "2024.02.00"
+composeBom = "2024.06.00"
 appcompat = "1.6.1"
 material = "1.10.0"
 
@@ -18,6 +18,10 @@ hilt-navigation-compose ="1.2.0"
 navigationCommonAndroid = "2.9.0"
 
 firebase-auth ="23.2.1"
+foundationAndroid = "1.8.2"
+material3Android = "1.3.2"
+
+composeCompiler = "1.6.10"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -51,6 +55,8 @@ hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", v
 
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-navigation-compose" }
 androidx-navigation-common-android = { group = "androidx.navigation", name = "navigation-common-android", version.ref = "navigationCommonAndroid" }
+androidx-foundation-android = { group = "androidx.compose.foundation", name = "foundation-android", version.ref = "foundationAndroid" }
+androidx-material3-android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3Android" }
 
 
 [plugins]

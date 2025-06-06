@@ -1,4 +1,4 @@
-package com.deybi.firebase.di
+package com.deybi.di
 
 import com.google.firebase.auth.FirebaseAuth
 import dagger.Module

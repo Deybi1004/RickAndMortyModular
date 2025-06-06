@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.compose.compiler)
-
+    id("com.google.gms.google-services")
     id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp")
 }
@@ -43,9 +43,7 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.7.0"
-    }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -79,10 +77,13 @@ dependencies {
     implementation(libs.navigation.compose)
     implementation(libs.lifecycle.viewmodel.compose)
 
+    implementation(libs.firebase.auth)
+
     implementation(project(":core:common"))
     implementation(project(":core:network"))
     implementation(project(":core:firebase"))
 
     implementation(project(":feature:login"))
     implementation(project(":feature:home"))
+    implementation(project(":navigation"))
 }

@@ -1,11 +1,9 @@
-package com.deybi.firebase.di
+package com.deybi.di
 
 import com.deybi.firebase.auth.FirebaseAuthService
 import com.deybi.firebase.auth.FirebaseAuthServiceImpl
-import com.google.firebase.auth.FirebaseAuth
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
