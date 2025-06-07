@@ -20,7 +20,7 @@ fun NavGraphBuilder.loginGraph(navController: NavHostController) {
             uiState = uiState,
             onEmailChange = { viewModel.onEmailChange(it) },
             onPasswordChange = { viewModel.onPasswordChange(it) },
-            onLoginClick = {},
+            onLoginClick = {viewModel.login()},
             onRegisterClick = {}
         )
     }

@@ -32,6 +32,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.deybi.common.ui.atoms.DSButton
+import com.deybi.common.ui.atoms.DSTextBody
+import com.deybi.common.ui.molecules.DSInputField
+import com.deybi.common.ui.molecules.DSPasswordField
+import com.deybi.common.ui.templates.ScreenTemplate
 import com.deybi.login.R
 import com.deybi.login.presentation.state.LoginUiState
 
@@ -43,113 +48,53 @@ fun LoginScreen(
     onLoginClick: () -> Unit,
     onRegisterClick: () -> Unit
 ) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color(0xFFF9F9F9))
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(horizontal = 24.dp)
-                .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Spacer(modifier = Modifier.height(40.dp))
-
-            // Imagen ilustrativa (usa tu imagen local o de red)
+    ScreenTemplate(
+        illustration = {
             Image(
-                painter = painterResource(id = R.drawable.login_image_rick_morty), // debes poner esta imagen en res/drawable
-                contentDescription = "Login Illustration",
+                painter = painterResource(R.drawable.login_image_rick_morty),
+                contentDescription = null,
                 modifier = Modifier
                     .height(200.dp)
                     .padding(top = 16.dp)
             )
-
-            Spacer(modifier = Modifier.height(32.dp))
-
-            // Textos principales
+        },
+        title = "WELCOME BACK",
+        subtitle = "SIGN IN"
+    ) {
+        DSInputField(
+            value = uiState.email,
+            onValueChange = onEmailChange,
+            label = "Email or Username",
+            leadingIcon = { Icon(Icons.Default.Person, contentDescription = null) },
+            modifier = Modifier.padding(vertical = 8.dp)
+        )
+        DSPasswordField(
+            value = uiState.password,
+            onValueChange = onPasswordChange,
+            modifier = Modifier.padding(vertical = 8.dp)
+        )
+        DSButton(
+            text = "SIGN IN",
+            onClick = onLoginClick,
+            modifier = Modifier.padding(vertical = 16.dp),
+            containerColor = Color.Blue
+        )
+        Row(modifier = Modifier.padding(top = 8.dp)) {
+            DSTextBody(text = "Don't have an account? ")
             Text(
-                text = "WELCOME BACK",
-                style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold),
-                color = Color(0xFF1E1E1E)
-            )
-            Text(
-                text = "SIGN IN",
-                style = MaterialTheme.typography.bodyLarge,
-                color = Color.Gray
-            )
-
-            Spacer(modifier = Modifier.height(32.dp))
-
-            // Campo email
-            OutlinedTextField(
-                value = uiState.email,
-                onValueChange = onEmailChange,
-                label = { Text("Email or Username") },
-                leadingIcon = {
-                    Icon(Icons.Default.Person, contentDescription = "User Icon")
-                },
-                singleLine = true,
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(16.dp)
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Campo password
-            OutlinedTextField(
-                value = uiState.password,
-                onValueChange = onPasswordChange,
-                label = { Text("Password") },
-                leadingIcon = {
-                    Icon(Icons.Default.Lock, contentDescription = "Lock Icon")
-                },
-                trailingIcon = {
-                    Icon(Icons.Default.Lock, contentDescription = "Show Password")
-                },
-                singleLine = true,
-                visualTransformation = PasswordVisualTransformation(),
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(16.dp)
-            )
-
-            Spacer(modifier = Modifier.height(32.dp))
-
-            // Botón Sign In
-            Button(
-                onClick = onLoginClick,
+                text = "Create one Now!",
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .height(56.dp),
-                shape = RoundedCornerShape(32.dp)
-            ) {
-                Text(
-                    text = "SIGN IN",
-                    style = MaterialTheme.typography.bodyLarge.copy(
-                        fontWeight = FontWeight.Bold,
-                        color = Color.Black
-                    )
+                    .clickable { onRegisterClick() }
+                    .padding(start = 4.dp),
+                style = MaterialTheme.typography.bodyMedium.copy(
+                    color = Color.Green,
+                    fontWeight = FontWeight.Bold
                 )
-            }
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            // Texto para registrarse
-            Row {
-                Text(text = "Don't have an account? ")
-                Text(
-                    text = "Create one Now!",
-                    color = Color(0xFFFFC727),
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.clickable { onRegisterClick() }
-                )
-            }
-
-            Spacer(modifier = Modifier.height(40.dp))
+            )
         }
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable
