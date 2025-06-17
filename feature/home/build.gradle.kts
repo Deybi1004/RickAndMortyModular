@@ -47,5 +47,13 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation(libs.androidx.foundation.android)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3.android)
+
     implementation(libs.navigation.compose)
+
+    implementation(project(":domain:auth"))
+    implementation(project(":core:common"))
+    implementation(project(":di"))
 }
