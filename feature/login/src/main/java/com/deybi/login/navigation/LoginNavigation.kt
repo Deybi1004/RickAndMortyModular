@@ -10,7 +10,11 @@ import com.deybi.login.presentation.screen.LoginScreen
 import com.deybi.login.presentation.viewmodel.LoginViewModel
 
 
-fun NavGraphBuilder.loginGraph(navController: NavHostController) {
+fun NavGraphBuilder.loginGraph(
+    navController: NavHostController,
+    onSuccess: () -> Unit,
+    onRegister: () -> Unit
+) {
 
     composable(LoginRoutes.LOGIN) {
         val viewModel: LoginViewModel = hiltViewModel()
@@ -18,10 +22,11 @@ fun NavGraphBuilder.loginGraph(navController: NavHostController) {
 
         LoginScreen(
             uiState = uiState,
-            onEmailChange = { viewModel.onEmailChange(it) },
-            onPasswordChange = { viewModel.onPasswordChange(it) },
-            onLoginClick = {viewModel.login()},
-            onRegisterClick = {}
+            onEmailChange = viewModel::onEmailChange,
+            onPasswordChange = viewModel::onPasswordChange,
+            onLoginClick = viewModel::login,
+            onRegisterClick = onRegister,
+            onSuccess = onSuccess
         )
     }
 

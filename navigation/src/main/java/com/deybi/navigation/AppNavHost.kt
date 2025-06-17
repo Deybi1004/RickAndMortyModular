@@ -12,7 +12,7 @@ import com.deybi.navigation.main.mainGraph
 fun AppNavHost(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = if(false) MainRoutes.MAIN else AuthRoutes.AUTH
+        startDestination = if(true) MainRoutes.MAIN else AuthRoutes.AUTH
     ) {
         authGraph(navController)
         mainGraph(navController)
